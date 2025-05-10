@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مبادرة سُوى | فريق شبابي تطوعي</title>
+  <meta name="description" content="فريق شبابيّ تطوّعيّ غير ربحي، انطلق من إيمانٍ راسخٍ بأنّ الشباب هم نبضُ النهضة وروحُ التغيير" />
+  <meta name="author" content="فريق سُوى" />
+  <meta property="og:title" content="مبادرة سُوى | فريق شبابي تطوعي" />
+  <meta property="og:description" content="فريق شبابيّ تطوّعيّ غير ربحي، انطلق من إيمانٍ راسخٍ بأنّ الشباب هم نبضُ النهضة وروحُ التغيير" />
+  <meta property="og:type" content="website" />
+  
+  <!-- الخطوط العربية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* متغيرات التصميم */
+    :root {
+      --primary: #ef4444;
+      --primary-hover: #dc2626;
+      --primary-light: #fecaca;
+      --primary-dark: #b91c1c;
+      --primary-darkest: #7f1d1d;
+      --background-light: #ffffff;
+      --background-dark: #0f172a;
+      --text-light: #1e293b;
+      --text-dark: #f8fafc;
+      --card-light: #ffffff;
+      --card-dark: #1e293b;
+      --accent-light: #f1f5f9;
+      --accent-dark: #334155;
+      --border-light: #e2e8f0;
+      --border-dark: #334155;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --radius: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+    }
+
+    /* إعادة تعيين عام */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* أنيميشن أساسية */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* أساسيات الصفحة */
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: 80px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark {
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* التكيف مع الأجهزة المختلفة */
+    @media (max-width: 768px) {
+      html {
+        font-size: 95%;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* الشريط العلوي */
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-darkest), var(--primary));
+      color: white;
+      z-index: 1000;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    header.scrolled {
+      height: 70px;
+      background: rgba(127, 29, 29, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo i {
+      color: #fca5a5;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    /* القائمة */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* الأزرار */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: 'Tajawal', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-glow {
+      animation: pulse 2s infinite;
+    }
+
+    .btn-glow:hover {
+      animation: none;
+    }
+
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+    }
+
+    .theme-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: rotate(15deg);
+    }
+
+    /* الهيكل الرئيسي */
+    main {
+      display: flex;
+      min-height: calc(100vh - 80px - 400px);
+      transition: all 0.3s ease;
+    }
+
+    /* الشريط الجانبي */
+    .sidebar {
+      width: 280px;
+      background-color: var(--card-light);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+      position: sticky;
+      top: 80px;
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    body.dark .sidebar {
+      background-color: var(--card-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-tab {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      font-weight: 500;
+    }
+
+    .nav-tab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.2));
+      transition: all 0.4s ease;
+    }
+
+    .nav-tab:hover {
+      background-color: var(--accent-light);
+      transform: translateX(5px);
+    }
+
+    .nav-tab:hover::before {
+      left: 0;
+    }
+
+    body.dark .nav-tab:hover {
+      background-color: var(--accent-dark);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    }
+
+    .nav-tab.active:hover {
+      background: linear-gradient(135deg, var(--primary-hover), var(--primary-dark));
+    }
+
+    .nav-tab.active::before {
+      display: none;
+    }
+
+    .nav-tab i {
+      width: 24px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* المحتوى الرئيسي */
+    .content {
+      flex: 1;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s ease forwards;
+      transition: all 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* العناوين */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.85rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .section-title:hover::after {
+      width: 100px;
+    }
+
+    .highlight {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+    }
+
+    /* البطاقات */
+    .card {
+      background-color: var(--card-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      height: 100%;
+      position: relative;
+    }
+
+    body.dark .card {
+      background-color: var(--card-dark);
+      border-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .card-shadow {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark .card-shadow {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    body.dark .card-header {
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .card-desc {
+      color: #64748b;
+      font-weight: 400;
+      font-size: 0.95rem;
+    }
+
+    body.dark .card-desc {
+      color: #94a3b8;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .card-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    body.dark .card-footer {
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .card-accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+
+    .gradient-border {
+      position: relative;
+      border: none;
+    }
+
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: var(--radius-lg);
+      padding: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* القسم الرئيسي */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-darkest), var(--primary));
+      color: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 3rem;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(127, 29, 29, 0.3);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1546015720-b8b30df5aa27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      opacity: 0.15;
+      transition: all 0.5s ease;
+    }
+
+    .hero:hover::before {
+      transform: scale(1.05);
+      opacity: 0.2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 3rem;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .hero:hover h1::after {
+      width: 120px;
+    }
+
+    .hero p {
+      font-size: 1.35rem;
+      margin-bottom: 2.5rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* الشبكات */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .features {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+      border-radius: var(--radius-lg);
+    }
+
+    .features:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.1);
+    }
+
+    .features:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
+    }
+
+    body.dark .feature-icon {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+    }
+
+    .feature-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    /* قصص النجاح */
+    .story-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .story-image {
+      height: 220px;
+      background-color: #f1f5f9;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: 500;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .story-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(239, 68, 68, 0.1), transparent);
+      z-index: 1;
+    }
+
+    body.dark .story-image {
+      background-color: #334155;
+      color: #94a3b8;
+    }
+
+    /* الإحصائيات */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-value {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-value {
+      transform: scale(1.1);
+    }
+
+    .stat-value::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary-light);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .stat-card:hover .stat-value::after {
+      width: 80px;
+    }
+
+    .stat-label {
+      font-size: 1.15rem;
+      color: #64748b;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    body.dark .stat-label {
+      color: #94a3b8;
+    }
+
+    /* الوسائط */
+    .media-grid, .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .media-card, .video-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .media-image, .video-thumbnail {
+      height: 220px;
+      background-color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body.dark .media-image, body.dark .video-thumbnail {
+      background-color: #334155;
+    }
+
+    .play-button {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 2;
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+    }
+
+    .play-button:hover {
+      transform: scale(1.1);
+      background-color: var(--primary-hover);
+      box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+    }
+
+    .media-date {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* التواصل */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: start;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background-color: var(--accent-light);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      background-color: rgba(239, 68, 68, 0.05);
+      border-color: rgba(239, 68, 68, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark .contact-item {
+      background-color: var(--accent-dark);
+    }
+
+    body.dark .contact-item:hover {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      font-size: 1.3rem;
+    }
+
+    .contact-item:hover .contact-icon {
+      transform: scale(1.1) rotate(10deg);
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+    }
+
+    body.dark .contact-icon {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+    }
+
+    .contact-label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* الروابط */
+    .link {
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      padding: 0.2rem 0;
+    }
+
+    .link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .link:hover {
+      color: var(--primary-hover);
+    }
+
+    .link:hover::after {
+      width: 100%;
+    }
+
+    /* النماذج */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding-right: 12px;
+    }
+
+    .form-label::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      background-color: var(--background-light);
+      color: var(--text-light);
+      font-family: 'Tajawal', sans-serif;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    body.dark .form-input, body.dark .form-textarea {
+      border-color: var(--border-dark);
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    /* الفوتر */
+    footer {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-darkest), var(--primary-dark));
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-light), var(--primary), var(--primary-light));
+    }
+
+    footer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-branding {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-desc {
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary-light);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      width: fit-content;
+      padding: 0.2rem 0;
+      font-size: 1.05rem;
+    }
+
+    .footer-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: white;
+      transform: translateX(-8px);
+    }
+
+    .footer-link:hover::before {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-contact-item:hover {
+      transform: translateX(-5px);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      color: var(--primary-light);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.85;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* العناصر العامة */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    body.dark .badge {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+    }
+
+    .list-item {
+      display: flex;
+      align-items: start;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background-color: var(--accent-light);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      border-right: 3px solid transparent;
+    }
+
+    .list-item:hover {
+      background-color: rgba(239, 68, 68, 0.05);
+      border-right-color: var(--primary);
+      transform: translateX(8px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark .list-item {
+      background-color: var(--accent-dark);
+    }
+
+    body.dark .list-item:hover {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .list-icon {
+      color: var(--primary);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .list-item:hover .list-icon {
+      transform: scale(1.2);
+    }
+
+    /* العناصر المتحركة */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+      border: none;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+    }
+
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 1001;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, var(--primary-light), var(--primary));
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+    /* التكيف مع الأجهزة المختلفة */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      main {
+        flex-direction: column-reverse;
+      }
+      
+      .content {
+        padding: 2rem;
+      }
+      
+      .sidebar {
+        width: 100%;
+        border-radius: var(--radius-lg);
+        margin-bottom: 1.5rem;
+        height: auto;
+        position: relative;
+        top: 0;
+      }
+      
+      .nav-tabs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      header {
+        height: 70px;
+      }
+      
+      header.scrolled {
+        height: 60px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.15rem;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .nav-actions {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--primary-darkest), var(--primary));
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 999;
+        animation: slideDown 0.3s ease forwards;
+      }
+      
+      @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      
+      .nav-actions.active {
+        display: flex;
+      }
+      
+      .media-grid, .video-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero {
+        min-height: auto;
+        padding: 2rem 1rem;
+        border-radius: var(--radius-lg);
+      }
+      
+      .hero-content {
+        padding: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .card-title {
+        font-size: 1.25rem;
+      }
+      
+      .stat-value {
+        font-size: 2.5rem;
+      }
+      
+      .contact-grid {
+        gap: 1rem;
+      }
+      
+      .contact-item {
+        padding: 1rem;
+      }
+      
+      footer {
+        padding: 3rem 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- شريط التقدم -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- الشريط العلوي -->
+  <header id="header">
+    <div class="header-container container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-heart"></i>
+        <span>مبادرة سُوى</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="تبديل القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="nav-actions" id="navActions">
+        <button class="btn btn-primary" onclick="window.open('https://forms.gle/yourVolunteerFormLink', '_blank')">
+          <i class="fa-solid fa-handshake"></i>
+          <span>تطوع معنا</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل المظهر">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main>
+    <!-- الشريط الجانبي -->
+    <div class="sidebar">
+      <div class="nav-tabs">
+        <a href="#home" class="nav-tab active" data-tab="home">
+          <i class="fa-solid fa-heart"></i>
+          <span>الرئيسية</span>
+        </a>
+        <a href="#success" class="nav-tab" data-tab="success">
+          <i class="fa-solid fa-award"></i>
+          <span>قصص نجاح</span>
+        </a>
+        <a href="#team" class="nav-tab" data-tab="team">
+          <i class="fa-solid fa-users"></i>
+          <span>عن الفريق</span>
+        </a>
+        <a href="#stats" class="nav-tab" data-tab="stats">
+          <i class="fa-solid fa-chart-column"></i>
+          <span>الإحصائيات</span>
+        </a>
+        <a href="#media" class="nav-tab" data-tab="media">
+          <i class="fa-solid fa-camera"></i>
+          <span>المركز الإعلامي</span>
+        </a>
+        <a href="#events" class="nav-tab" data-tab="events">
+          <i class="fa-solid fa-video"></i>
+          <span>مقاطع الفعاليات</span>
+        </a>
+        <a href="#contact" class="nav-tab" data-tab="contact">
+          <i class="fa-solid fa-envelope"></i>
+          <span>تواصل معنا</span>
+        </a>
+      </div>
+      
+      <div class="card">
+        <div class="card-content">
+          <button class="btn btn-primary btn-glow" style="width: 100%;" onclick="window.open('https://forms.gle/yourVolunteerFormLink', '_blank')">
+            <i class="fa-solid fa-handshake"></i>
+            تطوع معنا الآن
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- المحتوى -->
+    <div class="content">
+      <!-- الرئيسية -->
+      <div class="tab-content active" id="home">
+        <div class="hero">
+          <div class="hero-content">
+            <h1>فريق سُوى</h1>
+            <p>فريق شبابيّ تطوّعيّ غير ربحي، تأسّس عام 2024، وانطلق من إيمانٍ راسخٍ بأنّ الشباب هم نبضُ النهضة وروحُ التغيير</p>
+            <button class="btn btn-primary btn-lg btn-glow" onclick="window.open('https://forms.gle/yourVolunteerFormLink', '_blank')">
+              <i class="fa-solid fa-handshake"></i>
+              انضم إلينا
+            </button>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card features">
+            <div class="card-accent"></div>
+            <div class="feature-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="feature-title">مهمتنا</h3>
+            <p>تمكينُ جيلٍ واعٍ، مبدع، يُحسن الغرس ويحمل الوطن في القلب</p>
+          </div>
+          
+          <div class="card features">
+            <div class="card-accent"></div>
+            <div class="feature-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h3 class="feature-title">رؤيتنا</h3>
+            <p>سُوى… لأنّنا معًا، نُغيّر ونبني</p>
+          </div>
+          
+          <div class="card features">
+            <div class="card-accent"></div>
+            <div class="feature-icon">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <h3 class="feature-title">قيمنا</h3>
+            <p>يتبنّى الفريق مبادراتٍ نوعيّة في مجالاتٍ عدّة لإحداثِ أثرٍ مستدامٍ يعمُّ الإنسانَ والمكان</p>
+          </div>
+        </div>
+        
+        <div class="card gradient-border" style="margin-top: 2.5rem;">
+          <div class="card-content">
+            <div class="card-title">
+              <i class="fa-solid fa-award"></i>
+              انضم إلينا
+            </div>
+            <p class="card-desc">كن جزءًا من التغيير الذي تريد أن تراه في العالم</p>
+            <p style="margin: 1.8rem 0; line-height: 1.8;">
+              لدينا أكثر من 300 متطوع ومنتسب يعملون بجد لخدمة المجتمع من خلال مبادراتنا المتنوعة. انضم إلينا اليوم وساهم في إحداث أثر إيجابي!
+            </p>
+            <div style="text-align: center;">
+              <button class="btn btn-primary btn-lg btn-glow" onclick="window.open('https://forms.gle/yourVolunteerFormLink', '_blank')">
+                <i class="fa-solid fa-handshake"></i>
+                تطوع معنا الآن
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- قصص النجاح -->
+      <div class="tab-content" id="success">
+        <h2 class="section-title">
+          <i class="fa-solid fa-award"></i>
+          قصص نجاح <span class="highlight">مبادرتنا</span>
+        </h2>
+        
+        <div class="grid">
+          <div class="card story-card">
+            <div class="card-accent"></div>
+            <div class="story-image">
+              <span>صورة قصة النجاح</span>
+            </div>
+            <div class="card-content">
+              <span class="badge">مبادرة ناجحة</span>
+              <h3 class="card-title">
+                <i class="fa-solid fa-heart"></i>
+                مبادرة سوى
+              </h3>
+              <p>نفذت ما يقارب أربع وأربعون نشاطًا ميدانيًا والعديد من الجلسات في مجالات مختلفة عن بعد.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                اقرأ المزيد
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="card story-card">
+            <div class="card-accent"></div>
+            <div class="story-image">
+              <span>صورة قصة النجاح</span>
+            </div>
+            <div class="card-content">
+              <span class="badge">مبادرة مميزة</span>
+              <h3 class="card-title">
+                <i class="fa-solid fa-award"></i>
+                المبادرات النوعية
+              </h3>
+              <p>مبادرات في مجالات العملُ المجتمعي، والتكنولوجيا، والبيئة، والتعليم، والسياحة، والمجالُ التقني.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                اقرأ المزيد
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- عن الفريق -->
+      <div class="tab-content" id="team">
+        <h2 class="section-title">
+          <i class="fa-solid fa-users"></i>
+          فريق <span class="highlight">سُوى</span>
+        </h2>
+        
+        <div class="card gradient-border">
+          <div class="card-content">
+            <h3 class="card-title">
+              <i class="fa-solid fa-heart"></i>
+              من نحن
+            </h3>
+            <div class="team-info">
+              <p>
+                فريق شبابيّ تطوّعيّ غير ربحي، تأسّس عام 2024، وانطلق من إيمانٍ راسخٍ بأنّ الشباب هم نبضُ النهضة وروحُ التغيير. 
+                يتبنّى الفريق مبادراتٍ نوعيّة في مجالاتٍ عدّة؛ منها: العملُ المجتمعي، والتكنولوجيا، والبيئة، والتعليم، والسياحة، والمجالُ التقني، 
+                سعيًا لإحداثِ أثرٍ مستدامٍ يعمُّ الإنسانَ والمكان.
+              </p>
+              <div style="margin-top: 1.8rem;">
+                <h4 style="font-weight: 700; font-size: 1.35rem;">غايتُنا:</h4>
+                <p>تمكينُ جيلٍ واعٍ، مبدع، يُحسن الغرس ويحمل الوطن في القلب.</p>
+              </div>
+              <div style="margin-top: 1.2rem;">
+                <p style="font-weight: 700;">سُوى… لأنّنا معًا، نُغيّر ونبني.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الإحصائيات -->
+      <div class="tab-content" id="stats">
+        <h2 class="section-title">
+          <i class="fa-solid fa-chart-column"></i>
+          <span class="highlight">إحصائيات</span> المبادرة
+        </h2>
+        
+        <div class="stats-grid">
+          <div class="card stat-card">
+            <div class="card-accent"></div>
+            <div class="stat-value">300+</div>
+            <p class="stat-label">متطوع ومنتسب</p>
+          </div>
+          
+          <div class="card stat-card">
+            <div class="card-accent"></div>
+            <div class="stat-value">3,000+</div>
+            <p class="stat-label">مستفيد من مشاريعنا</p>
+          </div>
+          
+          <div class="card stat-card">
+            <div class="card-accent"></div>
+            <div class="stat-value">44+</div>
+            <p class="stat-label">نشاطًا ميدانيًا</p>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-top: 2.5rem;">
+          <div class="card-content">
+            <h3 class="card-title">
+              <i class="fa-solid fa-chart-column"></i>
+              تفاصيل الإحصائيات
+            </h3>
+            <div class="list-item">
+              <i class="fa-solid fa-users list-icon"></i>
+              <div>
+                <div class="contact-label">المتطوعون والمنتسبون:</div>
+                <div>300 متطوع ومنتسب</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <i class="fa-solid fa-users list-icon"></i>
+              <div>
+                <div class="contact-label">المستفيدين:</div>
+                <div>ما يقارب الثلاث ألاف مستفيد</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <i class="fa-solid fa-video list-icon"></i>
+              <div>
+                <div class="contact-label">المشروع والفعاليات:</div>
+                <div>مبادرة سوى والتي نفذت ما يقارب أربع وأربعون نشاطًا ميدانيًا والعديد من الجلسات في مجالات مختلفة عن بعد.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- المركز الإعلامي -->
+      <div class="tab-content" id="media">
+        <h2 class="section-title">
+          <i class="fa-solid fa-camera"></i>
+          المركز <span class="highlight">الإعلامي</span>
+        </h2>
+        
+        <div class="media-grid">
+          <div class="card media-card">
+            <div class="card-accent"></div>
+            <div class="media-image">صورة الخبر</div>
+            <div class="card-content">
+              <p class="media-date">5 مايو 2024</p>
+              <h3 class="card-title">إطلاق مبادرة جديدة</h3>
+              <p>تم إطلاق مبادرة جديدة لدعم المجتمعات المحلية وتعزيز التنمية المستدامة.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                اقرأ المزيد
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="card media-card">
+            <div class="card-accent"></div>
+            <div class="media-image">صورة الخبر</div>
+            <div class="card-content">
+              <p class="media-date">12 أبريل 2024</p>
+              <h3 class="card-title">نشاط ميداني</h3>
+              <p>تنفيذ نشاط ميداني في منطقة المفرق بمشاركة 50 متطوع من أعضاء الفريق.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                اقرأ المزيد
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="card media-card">
+            <div class="card-accent"></div>
+            <div class="media-image">صورة الخبر</div>
+            <div class="card-content">
+              <p class="media-date">20 مارس 2024</p>
+              <h3 class="card-title">جلسة تدريبية عن بعد</h3>
+              <p>إقامة جلسة تدريبية عن بعد في مجال التكنولوجيا بحضور أكثر من 100 شاب وشابة.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                اقرأ المزيد
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- مقاطع الفعاليات -->
+      <div class="tab-content" id="events">
+        <h2 class="section-title">
+          <i class="fa-solid fa-video"></i>
+          مقاطع <span class="highlight">الفعاليات</span>
+        </h2>
+        
+        <div class="video-grid">
+          <div class="card video-card">
+            <div class="card-accent"></div>
+            <div class="video-thumbnail">
+              <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <span>فيديو الفعالية</span>
+            </div>
+            <div class="card-content">
+              <p class="media-date">15 أبريل 2024</p>
+              <h3 class="card-title">نشاط ميداني في المفرق</h3>
+              <p>توثيق لأحد الأنشطة الميدانية التي نفذتها مبادرة سوى في محافظة المفرق.</p>
+            </div>
+          </div>
+          
+          <div class="card video-card">
+            <div class="card-accent"></div>
+            <div class="video-thumbnail">
+              <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <span>فيديو الفعالية</span>
+            </div>
+            <div class="card-content">
+              <p class="media-date">8 مارس 2024</p>
+              <h3 class="card-title">جلسة تدريبية تقنية</h3>
+              <p>جلسة تدريبية في مجال التقنية والبرمجة ضمن مبادرات الفريق لتمكين الشباب.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تواصل معنا -->
+      <div class="tab-content" id="contact">
+        <h2 class="section-title">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="highlight">تواصل</span> معنا
+        </h2>
+        
+        <div class="contact-grid">
+          <div class="card">
+            <div class="card-accent"></div>
+            <div class="card-content">
+              <h3 class="card-title">
+                <i class="fa-solid fa-phone"></i>
+                معلومات التواصل
+              </h3>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <div class="contact-label">هاتف:</div>
+                  <div>0781031733</div>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <div class="contact-label">البريد الإلكتروني:</div>
+                  <div>info@sawa-initiative.org</div>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div>
+                  <div class="contact-label">الموقع الرئيسي:</div>
+                  <div>المفرق_ الأردن</div>
+                </div>
+              </div>
+              
+              <h4 style="font-weight: 600; font-size: 1.2rem; margin-top: 1.8rem; margin-bottom: 1.2rem;">صفحاتنا على مواقع التواصل الاجتماعي:</h4>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                  <div class="contact-label">إنستغرام:</div>
+                  <a href="https://www.instagram.com/sawa.jo5?igsh=MThnNjVpYmRqZWtuZg==" class="link" target="_blank">
+                    sawa.jo5
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div>
+                  <div class="contact-label">فيس بوك:</div>
+                  <a href="https://www.facebook.com/share/16Freo1sQk/" class="link" target="_blank">
+                    فريق سُوى
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-accent"></div>
+            <div class="card-content">
+              <h3 class="card-title">
+                <i class="fa-solid fa-paper-plane"></i>
+                أرسل رسالة
+              </h3>
+              <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                  <label for="name" class="form-label">الاسم الكامل</label>
+                  <input type="text" id="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">البريد الإلكتروني</label>
+                  <input type="email" id="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label for="message" class="form-label">الرسالة</label>
+                  <textarea id="message" class="form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  إرسال الرسالة
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-branding">
+          <div class="footer-logo">
+            <i class="fa-solid fa-heart"></i>
+            <span>مبادرة سُوى</span>
+          </div>
+          <p class="footer-desc">
+            فريق شبابيّ تطوّعيّ غير ربحي، تأسّس عام 2024، وانطلق من إيمانٍ راسخٍ بأنّ الشباب هم نبضُ النهضة وروحُ التغيير.
+          </p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/share/16Freo1sQk/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/sawa.jo5?igsh=MThnNjVpYmRqZWtuZg==" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-title">روابط سريعة</h3>
+          <div class="footer-nav">
+            <a href="#home" class="footer-link" data-tab="home">الرئيسية</a>
+            <a href="#team" class="footer-link" data-tab="team">عن الفريق</a>
+            <a href="#success" class="footer-link" data-tab="success">قصص نجاح</a>
+            <a href="#stats" class="footer-link" data-tab="stats">الإحصائيات</a>
+            <a href="#contact" class="footer-link" data-tab="contact">اتصل بنا</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-title">تواصل معنا</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <span>0781031733</span>
+            </li>
+            <li class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <span>info@sawa-initiative.org</span>
+            </li>
+            <li class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <span>المفرق_ الأردن</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 - جميع الحقوق محفوظة لـ فريق سُوى</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر التمرير لأعلى الصفحة -->
+  <button id="scrollTop" class="scroll-top" aria-label="التمرير لأعلى">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- سكريبت جافاسكريبت -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // تهيئة المتغيرات
+      const header = document.getElementById('header');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle.querySelector('i');
+      const navToggle = document.getElementById('navToggle');
+      const navActions = document.getElementById('navActions');
+      const tabs = document.querySelectorAll('.nav-tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+      const footerLinks = document.querySelectorAll('.footer-link');
+      const contactForm = document.getElementById('contactForm');
+      const scrollTopButton = document.getElementById('scrollTop');
+      const progressBar = document.getElementById('progressBar');
+      
+      // وظيفة لتعيين المظهر
+      function setTheme(isDark) {
+        if (isDark) {
+          document.body.classList.add('dark');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.classList.remove('dark');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      
+      // التحقق من المظهر المحفوظ
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme === 'dark');
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark);
+      }
+      
+      // تبديل المظهر
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('dark');
+        setTheme(!isDark);
+      });
+      
+      // فتح/إغلاق القائمة على الهاتف
+      navToggle.addEventListener('click', () => {
+        navActions.classList.toggle('active');
+        const icon = navToggle.querySelector('i');
+        if (navActions.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        } else {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // تأثير التمرير للهيدر
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        
+        // تأثير الهيدر
+        if (scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        
+        // زر التمرير لأعلى
+        if (scrollY > 300) {
+          scrollTopButton.classList.add('visible');
+        } else {
+          scrollTopButton.classList.remove('visible');
+        }
+        
+        // شريط التقدم
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollY / windowHeight) * 100;
+        progressBar.style.width = `${scrolled}%`;
+      }
+      
+      // مستمع حدث التمرير
+      window.addEventListener('scroll', handleScroll);
+      
+      // التمرير لأعلى
+      scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // تفعيل التبويبات
+      function activateTab(tabId) {
+        // إلغاء تنشيط جميع التبويبات
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+          content.style.opacity = '0';
+          content.style.transform = 'translateY(20px)';
+        });
+        
+        // تنشيط التبويب المحدد
+        const selectedTab = document.querySelector(`.nav-tab[data-tab="${tabId}"]`);
+        const selectedContent = document.getElementById(tabId);
+        
+        if (selectedTab && selectedContent) {
+          selectedTab.classList.add('active');
+          selectedContent.classList.add('active');
+          
+          // تأثير الظهور
+          setTimeout(() => {
+            selectedContent.style.opacity = '1';
+            selectedContent.style.transform = 'translateY(0)';
+          }, 50);
+        }
+        
+        // إغلاق القائمة على الهاتف
+        navActions.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+        
+        // التمرير لأعلى
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+      
+      // مستمعات أحداث التبويبات
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabId = tab.getAttribute('data-tab');
+          activateTab(tabId);
+          history.pushState(null, null, `#${tabId}`);
+        });
+      });
+      
+      // مستمعات أحداث روابط الفوتر
+      footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabId = link.getAttribute('data-tab');
+          activateTab(tabId);
+          history.pushState(null, null, `#${tabId}`);
+        });
+      });
+      
+      // معالجة الروابط المباشرة
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        activateTab(hash);
+      }
+      
+      // إرسال النموذج
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // إنشاء إشعار النجاح
+        const notice = document.createElement('div');
+        notice.className = 'success-notice';
+        notice.innerHTML = `
+          <i class="fa-solid fa-check-circle"></i>
+          <span>تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.</span>
+        `;
+        document.body.appendChild(notice);
+        
+        // إعادة تعيين النموذج
+        contactForm.reset();
+        
+        // إزالة الإشعار بعد 4 ثوان
+        setTimeout(() => {
+          notice.classList.add('fade-out');
+          setTimeout(() => {
+            document.body.removeChild(notice);
+          }, 300);
+        }, 4000);
+      });
+      
+      // تأثيرات الظهور عند التمرير
+      const animateElements = () => {
+        const elements = document.querySelectorAll('.card, .section-title, .grid > *');
+        
+        elements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementTop < windowHeight - 100) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // تعيين الحالة الأولية للعناصر المتحركة
+      document.querySelectorAll('.card, .section-title, .grid > *').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
+      });
+      
+      // تشغيل عند التحميل وعند التمرير
+      window.addEventListener('load', animateElements);
+      window.addEventListener('scroll', animateElements);
+      
+      // نافذة منبثقة للفيديو
+      document.querySelectorAll('.play-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          const popup = document.createElement('div');
+          popup.className = 'video-popup';
+          popup.innerHTML = `
+            <div class="video-popup-content">
+              <button class="close-popup">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class="video-placeholder">
+                <p>نموذج لفيديو - في التطبيق الكامل سيظهر الفيديو هنا</p>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(popup);
+          document.body.style.overflow = 'hidden';
+          
+          // إغلاق النافذة المنبثقة
+          const closeBtn = popup.querySelector('.close-popup');
+          closeBtn.addEventListener('click', () => {
+            popup.classList.add('fade-out');
+            setTimeout(() => {
+              document.body.removeChild(popup);
+              document.body.style.overflow = '';
+            }, 300);
+          });
+          
+          // إغلاق بالنقر خارج النافذة
+          popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+              popup.classList.add('fade-out');
+              setTimeout(() => {
+                document.body.removeChild(popup);
+                document.body.style.overflow = '';
+              }, 300);
+            }
+          });
+        });
+      });
+    });
+
+    // أنيميشن إضافية
+    const style = document.createElement('style');
+    style.textContent = `
+      .success-notice {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 9999;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        animation: slideIn 0.3s ease forwards;
+      }
+      
+      .success-notice i {
+        font-size: 1.5rem;
+      }
+      
+      .fade-out {
+        animation: fadeOut 0.3s ease forwards;
+      }
+      
+      .video-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.3s ease forwards;
+        backdrop-filter: blur(5px);
+      }
+      
+      .video-popup-content {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      .close-popup {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+      
+      .close-popup:hover {
+        background: rgba(255,255,255,0.3);
+      }
+      
+      .video-placeholder {
+        padding: 56.25% 0 0 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+      
+      @keyframes slideIn {
+        from { transform: translate(-50%, -20px); opacity: 0; }
+        to { transform: translate(-50%, 0); opacity: 1; }
+      }
+      
+      @keyframes fadeOut {
+        to { opacity: 0; }
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
