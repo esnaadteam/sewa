@@ -1865,6 +1865,12 @@
               <h3 class="card-title">نشاط ميداني في المفرق</h3>
               <p>توثيق لأحد الأنشطة الميدانية التي نفذتها مبادرة سوى في محافظة المفرق.</p>
             </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                شاهد الفيديو
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
           </div>
           
           <div class="card video-card">
@@ -1879,6 +1885,33 @@
               <p class="media-date">8 مارس 2024</p>
               <h3 class="card-title">جلسة تدريبية تقنية</h3>
               <p>جلسة تدريبية في مجال التقنية والبرمجة ضمن مبادرات الفريق لتمكين الشباب.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                شاهد الفيديو
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="card video-card">
+            <div class="card-accent"></div>
+            <div class="video-thumbnail">
+              <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <span>فيديو الفعالية</span>
+            </div>
+            <div class="card-content">
+              <p class="media-date">22 فبراير 2024</p>
+              <h3 class="card-title">حفل تكريم المتطوعين</h3>
+              <p>فيديو لحفل تكريم المتطوعين المتميزين في مبادرة سوى لعام 2024.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link">
+                شاهد الفيديو
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -2019,6 +2052,8 @@
             <a href="#team" class="footer-link" data-tab="team">عن الفريق</a>
             <a href="#success" class="footer-link" data-tab="success">قصص نجاح</a>
             <a href="#stats" class="footer-link" data-tab="stats">الإحصائيات</a>
+            <a href="#media" class="footer-link" data-tab="media">المركز الإعلامي</a>
+            <a href="#events" class="footer-link" data-tab="events">مقاطع الفعاليات</a>
             <a href="#contact" class="footer-link" data-tab="contact">اتصل بنا</a>
           </div>
         </div>
@@ -2117,15 +2152,6 @@
         }
       });
       
-      // إغلاق القائمة عند النقر على رابط
-      document.querySelectorAll('.nav-tab-mobile').forEach(link => {
-        link.addEventListener('click', () => {
-          navActions.classList.remove('active');
-          navIcon.classList.remove('fa-xmark');
-          navIcon.classList.add('fa-bars');
-        });
-      });
-      
       // تأثير التمرير للهيدر
       function handleScroll() {
         const scrollY = window.scrollY;
@@ -2165,6 +2191,7 @@
       function activateTab(tabId) {
         // إلغاء تنشيط جميع التبويبات
         tabs.forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.nav-tab-mobile').forEach(tab => tab.classList.remove('active'));
         tabContents.forEach(content => {
           content.classList.remove('active');
           content.style.opacity = '0';
@@ -2173,10 +2200,13 @@
         
         // تنشيط التبويب المحدد
         const selectedTab = document.querySelector(`.nav-tab[data-tab="${tabId}"]`);
+        const selectedMobileTab = document.querySelector(`.nav-tab-mobile[data-tab="${tabId}"]`);
         const selectedContent = document.getElementById(tabId);
         
-        if (selectedTab && selectedContent) {
-          selectedTab.classList.add('active');
+        if (selectedTab) selectedTab.classList.add('active');
+        if (selectedMobileTab) selectedMobileTab.classList.add('active');
+        
+        if (selectedContent) {
           selectedContent.classList.add('active');
           
           // تأثير الظهور
@@ -2193,23 +2223,20 @@
         });
       }
       
-      // مستمعات أحداث التبويبات
-      tabs.forEach(tab => {
+      // مستمعات أحداث التبويبات (للكل)
+      document.querySelectorAll('.nav-tab, .nav-tab-mobile, .footer-link').forEach(tab => {
         tab.addEventListener('click', (e) => {
           e.preventDefault();
           const tabId = tab.getAttribute('data-tab');
           activateTab(tabId);
           history.pushState(null, null, `#${tabId}`);
-        });
-      });
-      
-      // مستمعات أحداث روابط الفوتر
-      footerLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const tabId = link.getAttribute('data-tab');
-          activateTab(tabId);
-          history.pushState(null, null, `#${tabId}`);
+          
+          // إغلاق القائمة المتنقلة إذا كانت مفتوحة
+          if (navActions.classList.contains('active')) {
+            navActions.classList.remove('active');
+            navIcon.classList.remove('fa-xmark');
+            navIcon.classList.add('fa-bars');
+          }
         });
       });
       
